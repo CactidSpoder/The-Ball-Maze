@@ -14,9 +14,9 @@ public class CameraFollowScript : MonoBehaviour {
 	void Update () {
 
         try {
-            transform.position = new Vector3(player.position.x, player.position.y + 15, player.position.z - 5);
+            transform.position = new Vector3(player.position.x, player.position.y + 15, player.position.z - 7);
         }
-        catch(MissingReferenceException e)
+        catch(MissingReferenceException)
         {
 
         }
