@@ -40,6 +40,7 @@ public class ItemLogicScript : MonoBehaviour
                 PlayerMovement pm = GameObject.Find("Sphere").GetComponent<PlayerMovement>();
 
                 pm.moveSpeed = 0;
+                pm.Freeze();
             }
         }
     }

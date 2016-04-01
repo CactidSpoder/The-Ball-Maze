@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour{
 		float moveZ = Input.GetAxis ("Vertical");
 
 		Vector3 movement = new Vector3 (moveX, 0f, moveZ);
-
+        
         rb.AddForce(movement * moveSpeed);
 
 	}
@@ -43,5 +43,10 @@ public class PlayerMovement : MonoBehaviour{
             gms.Lose();
             Destroy(gameObject);
         }
+    }
+
+    public void Freeze()
+    {
+        rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY;
     }
 }
