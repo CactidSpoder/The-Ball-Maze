@@ -4,8 +4,14 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerMovement : MonoBehaviour{
 
-	public float moveSpeed = 10f;
+    GameManagerScript gms;
+    public float moveSpeed = 10f;
     private Rigidbody rb;
+
+    void Awake()
+    {
+        gms = GameObject.Find("GameManager").GetComponent<GameManagerScript>();
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +39,9 @@ public class PlayerMovement : MonoBehaviour{
     void OnCollisionEnter(Collision col) {
 
         if (col.gameObject.name == "Pits")
+        {
+            gms.Lose();
             Destroy(gameObject);
+        }
     }
 }
